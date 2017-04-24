@@ -1,25 +1,7 @@
-<div class="center jumbotron">
-  <div class="text-center">
-    <h1>Welcome to the Tasklist</h1>
-    <%= link_to 'Sign up now!', signup_path, class: 'btn btn-lg btn-primary' %>
-  </div>
-</div>
-
-<% if logged_in? %>
-  <p>ログイン完了ユーザ: <%= current_user.name %></p>
-<% else %>
-  <div class="center jumbotron">
-    <div class="text-center">
-      <h1>Welcome to the Microposts</h1>
-      <%= link_to 'Sign up now!', signup_path, class: 'btn btn-lg btn-primary' %>
-    </div>
-  </div>
-<% end %>
-
 <% if logged_in? %>
   <div class="row">
     <aside class="col-md-4">
-      <%= form_for(@micropost) do |f| %>
+      <%= form_for(@tasklist) do |f| %>
         <div class="form-group">
           <%= f.text_area :content, class: 'form-control', rows: 5 %>
         </div>
@@ -27,13 +9,13 @@
       <% end %>
     </aside>
     <div class="col-xs-8">
-      <%= render 'microposts/microposts', microposts: @microposts, user: @user %>
+      <%= render 'tasklists/tasklists', tasklists: @tasklists, user: @user %>
     </div>
   </div>
 <% else %>
   <div class="center jumbotron">
     <div class="text-center">
-      <h1>Welcome to the Microposts</h1>
+      <h1>Welcome to the Tasklists</h1>
       <%= link_to 'Sign up now!', signup_path, class: 'btn btn-lg btn-primary' %>
     </div>
   </div>
